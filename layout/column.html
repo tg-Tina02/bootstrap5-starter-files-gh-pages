@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="zh-TW"><head><title>欄的運用</title><meta name="viewport" content="width=device-width, initial-scale=1"><link href="images/favicon.ico" rel="shortcut icon"><meta charset="UTF-8"><script src="/javascripts/vendor.js"></script></head><body class="bg-lighter">
+<div class="main my-5 container-none"><div class="mb-4"><h1 class="mt-0 text-muted">欄的運用</h1><small>檔名：<code>column.html</code></small></div>
+<!-- 🔥🔥練習開始🔥🔥 -->
+<style>
+  .box {
+    height: 100px;
+    background-color: var(--bs-primary);
+    color: #fff;
+    text-align: center;
+    line-height: 100px;
+  }
+</style>
+
+<h2>格線的基本架構 container, row, col</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="box"></div>
+    </div>
+    <div class="col-6">
+      <div class="box"></div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>外層至少要有一層 container</h2>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <div class="box">col-6</div>
+    </div>
+    <div class="col-6">
+      <div class="box">col-6</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<h2>寬度運用</h2>
+
+<h4>限制單欄寬度(預設為 12 欄)</h4>
+
+col-*
+
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <div class="box">col-4</div>
+    </div>
+    <div class="col-4">
+      <div class="box">col-4</div>
+    </div>
+    <div class="col-4">
+      <div class="box">col-4</div>
+    </div>
+  </div>
+</div>
+
+<h4>換行</h4>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="box">1</div>
+    </div>
+    <div class="col-6">
+      <div class="box">2</div>
+    </div>
+    <div class="col-6">
+      <div class="box">3</div>
+    </div>
+    <div class="col-6">
+      <div class="box">4</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<h4>等寬欄</h4>
+
+col
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="box">col</div>
+    </div>
+    <div class="col">
+      <div class="box">col</div>
+    </div>
+    <div class="col">
+      <div class="box">col</div>
+    </div>
+    <div class="col">
+      <div class="box">col</div>
+    </div>
+  </div>
+
+  col 平均分配剩餘空間
+  <div class="row">
+    <div class="col-6">
+      <div class="box">col-6</div>
+    </div>
+    <div class="col">
+      <div class="box">col</div>
+    </div>
+    <div class="col">
+      <div class="box">col</div>
+    </div>
+    <div class="col">
+      <div class="box">col</div>
+    </div>
+  </div>
+</div>
+
+<h4>彈性寬度</h4>
+
+<p>加入 col-auto</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="box">col-6</div>
+    </div>
+    <div class="col-auto">
+      <div class="box">
+        col-auto 這裡有一句話
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<h2>巢狀</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="box">col-6</div>
+    </div>
+    <div class="col-6">
+      <!-- 在此加入另一個格線結構 -->
+      <div class="row">
+        <div class="col">
+          <div class="box">子物件</div>
+        </div>
+        <div class="col">
+          <div class="box">子物件</div>
+        </div>
+      </div>
+      <!-- <div class="row">
+        <div class="col">
+          <div class="box"></div>
+        </div>
+        <div class="col">
+          <div class="box"></div>
+        </div>
+        <div class="col">
+          <div class="box"></div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<hr>
+<h2>響應式</h2>
+
+<p>情境：</p>
+<ul>
+  <li>桌面版 xl：4 大欄</li>
+  <li>平板 md：3 大欄</li>
+  <li>行動版 xs：2 欄</li>
+</ul>
+
+col-xl-*
+
+<div class="container">
+  <div class="row">
+    <div class="col-6 col-md-4 col-xl-3 mb-3">
+      <div class="box">col-6 col-md-4 col-xl-3</div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-3 mb-3">
+      <div class="box">col-6 col-md-4 col-xl-3</div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-3 mb-3">
+      <div class="box">col-6 col-md-4 col-xl-3</div>
+    </div>
+    <div class="col-6 col-md-4 col-xl-3 mb-3">
+      <div class="box">col-6 col-md-4 col-xl-3</div>
+    </div>
+  </div>
+</div>
+
+
+<p>所有包含中斷點的格線，行動版皆為滿寬</p>
+
+<p>情境：</p>
+<ul>
+  <li>平板以上為 md：3 大欄</li>
+  <li>行動版 xs：單 欄</li>
+</ul>
+<strong>
+  當有其他 col 中斷點的時候，可以不寫 col-12
+</strong>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="box">col-md-4</div>
+    </div>
+    <div class="col-md-4">
+      <div class="box">col-md-4</div>
+    </div>
+    <div class="col-md-4">
+      <div class="box">col-md-4</div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+<h2>推移（offset）</h2>
+
+<p>目前大多會透過 flex 特性推移，offset 的運用情境較少</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-3"><div class="box">col-4 offset-3</div></div>
+  </div>
+</div>
+<!-- 🙇🙇練習結束🙇🙇 -->
+
+  <div class="btn-group position-fixed" style="top: 66px; right: 10px">
+  <button type="button" class="btn btn-bs5 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="bi bi-list"></i> 選單
+  </button>
+  <ul class="dropdown-menu p-2 dropdown-menu-end" style="min-width: 200px;">
+    <div class="list-group overflow-auto" style="max-height: 500px;">
+    
+      <a href="/layout/breakpoint.html"
+        class="list-group-item list-group-item-action text-nowrap
+          
+          ">
+        中斷點
+      </a>
+    
+      <a href="/layout/container.html"
+        class="list-group-item list-group-item-action text-nowrap
+          
+          ">
+        Container 容器寬度
+      </a>
+    
+      <a href="/layout/column.html"
+        class="list-group-item list-group-item-action text-nowrap
+          
+          active">
+        欄的運用
+      </a>
+    
+      <a href="/layout/gutter.html"
+        class="list-group-item list-group-item-action text-nowrap
+          
+          ">
+        gutter 的運用
+      </a>
+    
+      <a href="/layout/with_utilities.html"
+        class="list-group-item list-group-item-action text-nowrap
+          
+          ">
+        通用類別混合使用
+      </a>
+    
+      <a href="/layout/practice_column.html"
+        class="list-group-item list-group-item-action text-nowrap
+          
+          ">
+        實戰練習 1：各種小技巧
+      </a>
+    
+      <a href="/layout/practice_danger.html"
+        class="list-group-item list-group-item-action text-nowrap
+          
+          ">
+        實戰練習 2：常見錯誤
+      </a>
+    
+    </div>
+    <div class="mt-3 text-end p-2 bg-light rounded">
+      <small class="text-black-50 fw-light mb-0">文件版本：2022/01/20</small>
+    </div>
+  </ul>
+</div>
+
+</div>
+
+
+
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-bs5 shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Bootstrap 5 練習手冊</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link " href="/content/typography.html">Content</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/layout/breakpoint.html">Grid System</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/utilities/background.html">Utilities / Helpers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/forms/accessibility.html">Forms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/components/component-javascript-intro.html">Components</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="/bs-javascript/js-intro.html">JavaScripts</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<footer class="footer py-2 bg-light">
+  <div class="container text-center">
+    <small class="text-black-50 fw-light mb-0">六角學院 Bootstrap 5 課程專屬文件</small>
+  </div>
+</footer>
+<link rel="stylesheet" href="/stylesheets/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</body>
+</html>
